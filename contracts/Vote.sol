@@ -43,6 +43,12 @@ contract Voting {
         _;
     }
 
+    function join() external {
+        require(!members[msg.sender], "you are already a member");
+        members[msg.sender] = true;
+        emit MemberJoined(msg.sender, block.timestamp);
+    }
+
     function createVote(
         string memory uri,
         uint256 endTime,
