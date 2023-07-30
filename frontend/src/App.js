@@ -1,5 +1,21 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CreateVote from "./CreateVotes";
+import Votes from "./Votes";
+import NavbarTop from "./Navbar";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Router>
+      <NavbarTop />
+      <div className="container ">
+        <Routes>
+          <Route path="create-vote" element={<CreateVote />} />
+          <Route path="votes" element={<Votes />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
