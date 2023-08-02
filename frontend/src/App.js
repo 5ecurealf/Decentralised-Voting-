@@ -21,14 +21,15 @@ function App() {
 
   const handleInit = () => {
     setConnected(true);
-    const { contract, signer } = getContract();
-    setContract(contract);
+    getContract().then(({ contract, signer }) => {
+      setContract(contract);
 
-    if (contract) {
-      signer.getAddress().then((address) => {
-        contract.members(address).then((result) => setIsMember(result));
-      });
-    }
+      if (contract) {
+        signer.getAddress().then((address) => {
+          contract.members(address).then((result) => setIsMember(result));
+        });
+      }
+    });
   };
 
   const connectCallback = async () => {
