@@ -10,3 +10,4 @@ cache
 artifacts
 
 Voting.json
+frontend/src/contract.js
